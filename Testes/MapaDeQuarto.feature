@@ -17,4 +17,9 @@ And I can see room "201" in the "occupied" state
 And I can see room "203" in the "cleaning" state
 And I can see the date is "12/05/2019"
 
+Scenario: Export Daily Room Map
+Given I am at the "Mapa de Quarto" page
+And no date is selected
+When I select the "Export" option
+Then I can see a file "DailyRoomMap20190512" downloading
 
