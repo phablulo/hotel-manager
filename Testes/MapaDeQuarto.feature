@@ -21,5 +21,4 @@ Scenario: Export Daily Room Map
 Given I am at the "Mapa de Quarto" page
 And no date is selected
 When I select the "Export" option
-Then I can see a file "DailyRoomMap20190512" downloading
-
+Then I can see a file "DailyRoomMap" downloading
