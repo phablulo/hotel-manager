@@ -22,3 +22,11 @@ Given I am at the "Mapa de Quarto" page
 And no date is selected
 When I select the "Export" option
 Then I can see a file "DailyRoomMap" downloading
+
+Scenario: Export Room Map by date
+Given I am at the "Mapa de Quarto" page
+And no date is selected
+When selected  the date "12/05/2019"
+And I select the "Export" option
+Then I can see a file "RoomMap2019-05-12" downloading
+
