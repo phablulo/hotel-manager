@@ -9,3 +9,12 @@ Then I can see room "200" in the "vacant" state
 And I can see room "201" in the "occupied" state
 And I can see room "203" in the "cleaning" state
 And I can see the date is "12/05/2019"
+
+Scenario: Generate Room Map By Date
+Given I am at the "Mapa de Quarto" page
+Then I can see room "200" in the "vacant" state
+And I can see room "201" in the "occupied" state
+And I can see room "203" in the "cleaning" state
+And I can see the date is "12/05/2019"
+
+
