@@ -1,20 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MapaDeQuartoComponent } from './mapa-de-quarto/mapa-de-quarto.component';
+import { HelloComponent } from './hello.component';
+import { ExibirMapaDeQuartoComponent } from './exibir-mapa-de-quarto/exibir-mapa-de-quarto.component';
+import { ExportarMapaDeQuartoComponent } from './exportar-mapa-de-quarto/exportar-mapa-de-quarto.component';
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MapaDeQuartoComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports:      [ BrowserModule, FormsModule ],
+  declarations: [ AppComponent, HelloComponent, ExibirMapaDeQuartoComponent, ExportarMapaDeQuartoComponent],
+  bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
