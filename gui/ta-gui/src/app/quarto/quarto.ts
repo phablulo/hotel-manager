@@ -1,17 +1,17 @@
 //classe dummy para hospede 
-class Hospede{
-  id : number;
+export class Hospede{
+  nome : string;
   clean(): void{
-    this.id=null;
+    this.nome=null;
   }
   clone(): Hospede{
     var returnValue : Hospede;
     returnValue = new Hospede();
-    returnValue.id = this.id;
+    returnValue.nome = this.nome;
     return returnValue;
   }
   copyFrom(from:Hospede): void{
-    this.id = from.id;
+    this.nome = from.nome;
   }
 }
 

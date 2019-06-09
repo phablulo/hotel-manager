@@ -1,5 +1,24 @@
-<div *ngFor="let a of listQuartos">
-  <div>{{a.numeroQuarto}}</div>
-  <div></div>
-  <div></div>
+<div id="mapaQuarto">
+  <div id="ladoPar">
+    <ng-container *ngFor="let a of listQuartos">
+      <div id ="celulaPar" *ngIf="(a.numeroQuarto%2)==0">
+        <div>{{a.numeroQuarto}}</div>
+        <div></div>
+        <div>{{a.hospede.nome}}</div>
+      </div>
+      <br *ngIf="(a.numeroQuarto%6)==0">
+    </ng-container>
+  </div>
+  <div id="ladoImpar">
+    <ng-container *ngFor="let a of listQuartos">
+      <div id ="celulaPar" *ngIf="(a.numeroQuarto%2)==1">
+        <div>{{a.numeroQuarto}}</div>
+        <div></div>
+        <div>{{a.hospede.nome}}</div>
+      </div>
+      <br *ngIf="(a.numeroQuarto%6)==1">
+    </ng-container>
+  </div>
 </div>
+
+
