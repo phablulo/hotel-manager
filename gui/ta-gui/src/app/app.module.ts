@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmailComponent } from './email/email.component';
 import { HttpModule } from '@angular/http';
+import { GraficosComponent } from './graficos/graficos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmailComponent
+    EmailComponent,
+    GraficosComponent
   ],
   imports: [
     BrowserModule,
