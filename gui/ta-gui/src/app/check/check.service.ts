@@ -32,5 +32,8 @@ export class CheckService {
                 }
             })
     }
+    getQuarto() {
+        
+    }
     
 }

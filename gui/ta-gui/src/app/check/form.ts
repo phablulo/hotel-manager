@@ -90,7 +90,7 @@ export class Form {
         this.pais = "";
         this.cep = "";
 
-        //proxima procedência
+        //procedência
         this.ProcPais = "";
         this.ProcEstado = "";
         this.ProcCidade = "";

@@ -11,7 +11,6 @@ export class CheckInComponent implements OnInit {
     constructor (private checkService: CheckService) {}
     
     form: Form = new Form();
-    forms: Form[];
     cadastro: Boolean = true;
 
     checkInFunc1 (a: Form): void {
@@ -35,6 +34,7 @@ export class CheckInComponent implements OnInit {
             }
             if (ab != null) {
                 alert("Check-in feito");
+                this.form = new Form();
             }
         })
         .catch(erro => alert(erro));
