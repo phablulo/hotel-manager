@@ -1,0 +1,26 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<html (mousemove)="onMove()">
+<div style="text-align:center">
+
+<h1>E-mail</h1>
+    <div style="margin-top: 5%; ">
+        <input type=text id="assunto" [(ngModel)]="email.subject" style="width: 600px; font-size: 14px; font-family: arial;" placeholder="Escreva o assunto do E-mail" required="preencha o Assunto">
+        <input type=text id="assunto" [(ngModel)]="email.email" style="width: 600px; font-size: 14px; font-family: arial;" placeholder="Escreva o endereço do E-mail" required="preencha o Endereço de email"><br><br><br>
+        <textarea ng-model="myTextarea" id="corpodetexto" [(ngModel)]="email.body" style="font-size: 14px; font-family: arial;" rows="20" cols="80" placeholder="Escreva o corpo do E-mail" required="Preencha o corpo do email"></textarea> <br>
+        <td><button (click)="criarEmail(email)">Enviar</button></td>
+        <td *ngIf="naoenviado">
+         Falha ao enviar email.
+        </td>
+      <td *ngIf="enviado">
+      Email enviado com sucesso!
+      </td>
+      <td *ngIf="sub">
+      Sem assunto
+      </td>
+      <td *ngIf="bod">
+      Sem corpo
+      </td>
+      </div>
+    </div></html>
+
+<router-outlet></router-outlet>
