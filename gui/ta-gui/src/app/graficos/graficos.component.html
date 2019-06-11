@@ -2,7 +2,9 @@
 <html>
     <title>Graficos</title>
     <body>
-        <canvas id="volsChart"></canvas>
+        <canvas id="vendaDia"></canvas>
+        <canvas id="vendaDiaSemana"></canvas>
+        <canvas id="periodo"></canvas>
     </body>
     <script src="./node_modules/chart.js/dist/Chart.js"></script>
     <script>
@@ -30,7 +32,7 @@ const minVolsValue = -3
 const maxVolsValue = 3
 
 // Creating Graphic configuration
-var volsConf = {
+var VendaDia = {
   type: 'line',
   data: {
     labels: volsIndicators,
@@ -93,17 +95,146 @@ var volsConf = {
   }
 }
 
+var periodo = {
+  type: 'line',
+  data: {
+    labels: volsIndicators,
+    datasets: [{
+      showline: false,
+      label: 'A',
+      data: volsValues[0],
+      fill: false,
+      borderColor: [
+        'rgba(0, 0, 132, 1)'
+      ],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    legend: false,
+    title: {
+      display: true,
+      text: 'Venda por Periodo',
+      fontSize: 30,
+      fontColor: "#008B8B"
+    },
+    tooltips: {
+      callbacks: {
+        footer: function (tooltipItem, data) {
+          let ret
+          tooltipItem.forEach(function (tooltipItem) {
+            ret = 'Venda: ' + flowIndicators[tooltipItem.index]
+          })
+          return ret
+        },
+        title: function (tooltipItem, data) {
+          return 'Informacoes'
+        }
+      }
+    },
+    animation: {
+      duration: 0
+    },
+    scales: {
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Periodo'
+          fontSize: 15
+        },
+        ticks: {
+          min: minVolsValue,
+          max: maxVolsValue
+        }
+      }],
+      xAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Venda',
+          fontSize: 15
+        }
+      }]
+    }
+  }
+}
+
+var VendaDiaSemana = {
+  type: 'line',
+  data: {
+    labels: volsIndicators,
+    datasets: [{
+      showline: false,
+      label: 'A',
+      data: volsValues[0],
+      fill: false,
+      borderColor: [
+        'rgba(0, 0, 132, 1)'
+      ],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    legend: false,
+    title: {
+      display: true,
+      text: 'Venda por Dia da semana',
+      fontSize: 30,
+      fontColor: "#008B8B"
+    },
+    tooltips: {
+      callbacks: {
+        footer: function (tooltipItem, data) {
+          let ret
+          tooltipItem.forEach(function (tooltipItem) {
+            ret = 'Venda: ' + flowIndicators[tooltipItem.index]
+          })
+          return ret
+        },
+        title: function (tooltipItem, data) {
+          return 'Informacoes'
+        }
+      }
+    },
+    animation: {
+      duration: 0
+    },
+    scales: {
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Dia da semana'
+          fontSize: 15
+        },
+        ticks: {
+          min: minVolsValue,
+          max: maxVolsValue
+        }
+      }],
+      xAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Venda',
+          fontSize: 15
+        }
+      }]
+    }
+  }
+}
+
+
 // Function that runs when the pages opens
 window.onload = function () {
   // catch tag "canvas" of html file, by ID.
   //flowCtx = document.getElementById('flowChart')
-  volsCtx = document.getElementById('volsChart')
-
+  var g1 = document.getElementById('vendaDia')
+  var g2 = document.getElementById('vendaDiaSemana')
+  var g3 = document.getElementById('periodo')
   // Create two graphcs
   /* global Chart */
   //chartFlow = new Chart(flowCtx, FlowConf)
-  chartVols = new Chart(volsCtx, volsConf)
-
+  chartg1 = new Chart(g1, VendaDia)
+  chartg2 = new Chart(g2, VendaDiaSemana)
+  chartg3 = new Chart(g3, periodo)
   // Run the updating function of the two graphcs already created
   // The refresh rate is in milliseconds
   //setInterval(updateFlow, flowIntervalTime)
