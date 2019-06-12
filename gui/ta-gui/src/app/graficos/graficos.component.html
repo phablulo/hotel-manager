@@ -5,6 +5,7 @@
         <canvas id="vendaDia"></canvas>
         <canvas id="vendaDiaSemana"></canvas>
         <canvas id="periodo"></canvas>
+        <canvas id="diaHora"></canvas>
     </body>
     <script src="./node_modules/chart.js/dist/Chart.js"></script>
     <script>
@@ -94,6 +95,70 @@ var VendaDia = {
     }
   }
 }
+
+var diaHora = {
+  type: 'line',
+  data: {
+    labels: volsIndicators,
+    datasets: [{
+      showline: false,
+      label: 'A',
+      data: volsValues[0],
+      fill: false,
+      borderColor: [
+        'rgba(0, 0, 132, 1)'
+      ],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    legend: false,
+    title: {
+      display: true,
+      text: 'Venda por Dia e Hora',
+      fontSize: 30,
+      fontColor: "#008B8B"
+    },
+    tooltips: {
+      callbacks: {
+        footer: function (tooltipItem, data) {
+          let ret
+          tooltipItem.forEach(function (tooltipItem) {
+            ret = 'Venda: ' + flowIndicators[tooltipItem.index]
+          })
+          return ret
+        },
+        title: function (tooltipItem, data) {
+          return 'Informacoes'
+        }
+      }
+    },
+    animation: {
+      duration: 0
+    },
+    scales: {
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Dia e Hora'
+          fontSize: 15
+        },
+        ticks: {
+          min: minVolsValue,
+          max: maxVolsValue
+        }
+      }],
+      xAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Venda',
+          fontSize: 15
+        }
+      }]
+    }
+  }
+}
+
 
 var periodo = {
   type: 'line',
@@ -229,12 +294,14 @@ window.onload = function () {
   var g1 = document.getElementById('vendaDia')
   var g2 = document.getElementById('vendaDiaSemana')
   var g3 = document.getElementById('periodo')
+  var g4 = document.getElementById('diaHora')
   // Create two graphcs
   /* global Chart */
   //chartFlow = new Chart(flowCtx, FlowConf)
   chartg1 = new Chart(g1, VendaDia)
   chartg2 = new Chart(g2, VendaDiaSemana)
   chartg3 = new Chart(g3, periodo)
+  chartg4 = new Chart(g4, periodo)
   // Run the updating function of the two graphcs already created
   // The refresh rate is in milliseconds
   //setInterval(updateFlow, flowIntervalTime)
