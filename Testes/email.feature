@@ -23,3 +23,9 @@ And I do write a body to e-mail
 Then I try to send the email
 And I can see the mensage "E-mail enviado com sucesso."
 
+Scenario: Search for client results
+Given I am at the "E-mail" page
+And I do write something on one of the parameters
+And I click the "Buscar" button
+Then I can see a list of results of clients that follow the 
+required parameters and their respective E-mails
