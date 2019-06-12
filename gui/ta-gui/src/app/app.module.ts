@@ -18,7 +18,7 @@ import { CheckService } from './check-in/check.service';
   declarations: [
     AppComponent,
     EmailComponent,
-    GraficosComponent
+    GraficosComponent,
     HomePageComponent,
     CheckInComponent
   ],
