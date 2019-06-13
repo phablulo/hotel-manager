@@ -26,7 +26,8 @@ import { CheckService } from './check-in/check.service';
     RouterModule.forRoot([
       {path:'',component:HomePageComponent},
       {path:'email',component:EmailComponent},
-      {path:'checkin',component:CheckInComponent}
+      {path:'checkin',component:CheckInComponent},
+      {path:'grafico',component:GraficosComponent}
     ]),
     BrowserModule,
     FormsModule,
