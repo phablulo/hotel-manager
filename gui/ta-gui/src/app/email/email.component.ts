@@ -11,6 +11,7 @@ import { EmailService } from './email.service';
 export class EmailComponent implements OnInit {
    constructor(private emailService: EmailService) {}
 
+
    email: Email = new Email();
    enviado: boolean = false;
    naoenviado: boolean = false;

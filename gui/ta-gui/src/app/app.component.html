@@ -1,14 +1,39 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-    
+</head>
+
+<body>
     <div class="topnav">
-      <a class="active" href="">Home</a>
-      <a href="email">e-Mail</a>
-      <a href="checkin">Check-In</a>
-      <a href="grafico">Gráficos</a>
+
+        <div *ngIf = "homeActive, else homeElse">
+            <a class = "active" href="">Home</a>
+        </div>
+        <ng-template #homeElse>
+            <a href="">Home</a>
+        </ng-template>
+
+        <div *ngIf = "emailActive, else emailElse">
+            <a class = "active" href="email">e-Mail</a>
+        </div>
+        <ng-template #emailElse>
+            <a href="email">e-Mail</a>
+        </ng-template>
+        
+        <div *ngIf = "checkActive, else checkElse">
+            <a class = "active" href="checkin">Check-In</a>
+        </div>
+        <ng-template #checkElse>
+            <a href="checkin">Check-In</a>
+        </ng-template>
+                
+        <div *ngIf = "graficoActive, else graficoElse">
+            <a class = "active" href="grafico">Gráficos</a>
+        </div>
+        <ng-template #graficoElse>
+            <a href="grafico">Gráficos</a>
+        </ng-template>        
+    
     </div>
-    </body>
-  
+</body>
+
 <router-outlet></router-outlet>
