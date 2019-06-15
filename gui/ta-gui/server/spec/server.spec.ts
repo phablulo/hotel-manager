@@ -27,5 +27,10 @@ describe("O servidor", () => {
          });
      });
   
+  it("deleta emails da database", () => {
+   return request.post(base_url + "emaildelete", {"json":{"subject": "teste subject", "body" : "teste body"}}).then(body => {
+         expect(body).toEqual({success: "O email foi deletado com sucesso"});
+         });
+     });
 
   })
