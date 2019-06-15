@@ -2,7 +2,7 @@ const {Router} = require('express')
 const router = Router()
 module.exports = router
 
-const random = () => Math.round(Math.random() * 90)
+const random = (n=90) => Math.round(Math.random() * n)
 router.get('/vendas-por-tipo-de-quarto', (request, response) => {
   return response.json({
     'tipo-1': random(),
@@ -22,4 +22,12 @@ router.get('/vendas-por-dia-da-semana', (request, response) => {
     'sab': random(),
     'dom': random(),
   })
+})
+router.get('/vendas-por-periodo', (request, response) => {
+  const periodos = random(20)
+  const obj = {}
+  for (let i = 0; i < periodos; ++i) {
+    obj['periodo-'+i] = random()
+  }
+  return response.json(obj)
 })

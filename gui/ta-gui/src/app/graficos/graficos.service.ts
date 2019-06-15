@@ -15,4 +15,7 @@ export class GraficosService {
   porTipoDeQuarto() : Promise<{String:Number}> {
     return this._generic('/vendas-por-tipo-de-quarto')
   }
+  porPeriodo() : Promise<{String:Number}> {
+    return this._generic('/vendas-por-periodo')
+  }
 }

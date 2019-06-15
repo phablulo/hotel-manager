@@ -21,6 +21,12 @@ export class GraficosComponent implements OnInit {
       this.chartJSConfigFrom(data, 'por dia da semana')  
     )
     .then(config => this.initChart('vendaDiaSemana', config))
+
+    this.gs.porPeriodo()
+    .then(data => 
+      this.chartJSConfigFrom(data, 'por período')  
+    )
+    .then(config => this.initChart('vendaPeriodo', config))
   }
 
   initChart(element:string, config) {
