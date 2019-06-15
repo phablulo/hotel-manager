@@ -31,3 +31,10 @@ router.get('/vendas-por-periodo', (request, response) => {
   }
   return response.json(obj)
 })
+router.get('/vendas-por-hora', (request, response) => {
+  const obj = {}
+  for (let i = 0; i < 24; ++i) {
+    obj[('0'+i).slice(-2)+'h'] = random()
+  }
+  return response.json(obj)
+})

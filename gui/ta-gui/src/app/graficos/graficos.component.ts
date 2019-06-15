@@ -27,6 +27,12 @@ export class GraficosComponent implements OnInit {
       this.chartJSConfigFrom(data, 'por período')  
     )
     .then(config => this.initChart('vendaPeriodo', config))
+
+    this.gs.porHora()
+    .then(data => 
+      this.chartJSConfigFrom(data, 'por hora')  
+    )
+    .then(config => this.initChart('vendaHora', config))
   }
 
   initChart(element:string, config) {

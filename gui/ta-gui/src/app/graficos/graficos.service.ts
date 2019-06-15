@@ -18,4 +18,7 @@ export class GraficosService {
   porPeriodo() : Promise<{String:Number}> {
     return this._generic('/vendas-por-periodo')
   }
+  porHora() : Promise<{String:Number}> {
+    return this._generic('/vendas-por-hora')
+  }
 }
