@@ -38,3 +38,10 @@ router.get('/vendas-por-hora', (request, response) => {
   }
   return response.json(obj)
 })
+router.get('/vendas-por-produto', (request, response) => {
+  const obj = {}
+  for (let i = 0; i < 10; ++i) {
+    obj['produto-'+i] = random()
+  }
+  return response.json(obj)
+})

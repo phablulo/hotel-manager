@@ -21,4 +21,7 @@ export class GraficosService {
   porHora() : Promise<{String:Number}> {
     return this._generic('/vendas-por-hora')
   }
+  porProduto() : Promise<{String:Number}> {
+    return this._generic('/vendas-por-produto')
+  }
 }
