@@ -10,18 +10,24 @@ import Chart from 'chart.js'
 export class GraficosComponent implements OnInit {
   constructor(private gs: GraficosService) { }
   ngOnInit() {
-    this.gs.porDiaDaSemana()
+    this.gs.porTipoDeQuarto()
     .then(data => 
-      this.chartJSConfigFrom(data, 'por tipo de quarto', 'Tipo de quarto')  
+      this.chartJSConfigFrom(data, 'por tipo de quarto')  
     )
     .then(config => this.initChart('vendaTipoQuarto', config))
+
+    this.gs.porDiaDaSemana()
+    .then(data => 
+      this.chartJSConfigFrom(data, 'por dia da semana')  
+    )
+    .then(config => this.initChart('vendaDiaSemana', config))
   }
 
   initChart(element:string, config) {
     const context = (document.getElementById(element) as any).getContext('2d')
     new Chart(context, config)
   }
-  chartJSConfigFrom(obj:{String:Number}, title:String, xlabel:String) {
+  chartJSConfigFrom(obj:{String:Number}, title:String) {
     const keys = Object.keys(obj)
     return {
       type: 'bar',

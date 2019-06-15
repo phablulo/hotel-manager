@@ -12,3 +12,14 @@ router.get('/vendas-por-tipo-de-quarto', (request, response) => {
     'tipo-5': random(),
   })
 })
+router.get('/vendas-por-dia-da-semana', (request, response) => {
+  return response.json({
+    'seg': random(),
+    'ter': random(),
+    'qua': random(),
+    'qui': random(),
+    'sex': random(),
+    'sab': random(),
+    'dom': random(),
+  })
+})

@@ -10,6 +10,9 @@ export class GraficosService {
     .then(response => response.json())
   }
   porDiaDaSemana() : Promise<{String:Number}> {
+    return this._generic('/vendas-por-dia-da-semana')
+  } 
+  porTipoDeQuarto() : Promise<{String:Number}> {
     return this._generic('/vendas-por-tipo-de-quarto')
   }
 }
