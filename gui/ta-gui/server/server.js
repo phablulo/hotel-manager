@@ -15,6 +15,8 @@ app.use(function (req, res, next) {
 
 app.use(bodyParser.json());
 
+app.use('/graficos', require('./graficos'))
+
 app.post('/email', function (req = express.Request, res = express.Response) {
   var email = req.body; 
   result = enviar(email);

@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CheckInComponent } from './check-in/check-in.component';
 import { CheckService } from './check-in/check.service';
-
+import { GraficosService } from './graficos/graficos.service';
 
 
 @NgModule({
@@ -35,7 +35,7 @@ import { CheckService } from './check-in/check.service';
     AppRoutingModule
     
   ],
-  providers: [EmailService, CheckService],
+  providers: [EmailService, CheckService, GraficosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
