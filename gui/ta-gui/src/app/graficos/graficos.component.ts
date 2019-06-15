@@ -54,7 +54,7 @@ export class GraficosComponent implements OnInit {
         datasets: [{
           label: 'vendas',
           data: keys.map(x => obj[x]),
-          backgroundColor: this.colors()
+          backgroundColor: this.colorsFor(keys.length)
         }]
       },
       options: {
@@ -80,7 +80,8 @@ export class GraficosComponent implements OnInit {
       }
     }
   }
-  colors() {
+  colorsFor(length:number) {
+    if (length > 6) return 'rgba(75, 192, 192, 0.2)'
     return [
       'rgba(255, 99, 132, 0.2)',
       'rgba(54, 162, 235, 0.2)',
