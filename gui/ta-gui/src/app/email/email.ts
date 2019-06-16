@@ -1,7 +1,11 @@
 export class Email {
   subject: string;
   body: string;
-  email: string;
+  profissao: string;
+  nacionalidade: string;
+  cidade: string;
+  estado: string;
+  pais: string;
 
   constructor() {
     this.clean();
@@ -10,7 +14,12 @@ export class Email {
   clean(): void {
     this.subject = "";
     this.body = "";
-    this.email = "";
+    this.profissao = "";
+    this.nacionalidade = "";
+    this.cidade = "";
+    this.estado = "";
+    this.pais = "";
+
   }
 
 
