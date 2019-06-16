@@ -21,7 +21,7 @@ export class AppComponent {
     this.title = "Hotel Manager";
     this.homeActive = true;
 
-    }else if(this.url == "http://localhost:4200/email"){
+    }else if(this.url == "http://localhost:4200/email"||this.url == "http://localhost:4200/emaillist"){
     this.title = "Email - Hotel Manager";
     this.emailActive = true;
 

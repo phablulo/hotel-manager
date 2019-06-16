@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CheckInComponent } from './check-in/check-in.component';
 import { CheckService } from './check-in/check.service';
-import { CheckOutComponent } from './check-out/check-out.component';
+import { EmailListComponent } from './email-list/email-list.component';
 
 
 
@@ -22,14 +22,15 @@ import { CheckOutComponent } from './check-out/check-out.component';
     GraficosComponent,
     HomePageComponent,
     CheckInComponent,
-    CheckOutComponent
+    EmailListComponent
   ],
   imports: [
     RouterModule.forRoot([
       {path:'',component:HomePageComponent},
       {path:'email',component:EmailComponent},
       {path:'checkin',component:CheckInComponent},
-      {path:'grafico',component:GraficosComponent}
+      {path:'grafico',component:GraficosComponent},
+      {path:'emaillist',component:EmailListComponent}
     ]),
     BrowserModule,
     FormsModule,
