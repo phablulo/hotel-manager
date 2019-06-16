@@ -3,15 +3,11 @@ import { browser, $, element, ElementArrayFinder, by } from 'protractor';
 let chai = require('chai').use(require('chai-as-promised'));
 let expect = chai.expect;
 
-let sleep = (ms => new Promise(resolve => setTimeout(resolve, ms)));
-
-
-let pAND = ((p,q) => p.then(a => q.then(b => a && b)))
 
 defineSupportCode(function ({ Given, When, Then }) {
     Given(/^I am at the check-in page$/, async () => {
         await browser.get("http://localhost:4200/checkin");
-        await expect(browser.getTitle()).to.eventually.equal('TaGui');
+        await expect(browser.getTitle()).to.eventually.equal('Checkin - Hotel Manager');
     })
 
     Given(/^I have already registered a guest named "([^\"]*)" with cpf "(\d*)"$/, async (name, cpf) => {
@@ -26,7 +22,7 @@ defineSupportCode(function ({ Given, When, Then }) {
         await element(by.buttonText('Confirmar')).click(); 
 
         await browser.get("http://localhost:4200/checkin");
-        await expect(browser.getTitle()).to.eventually.equal('TaGui');
+        await expect(browser.getTitle()).to.eventually.equal('checkin');
     });
 
     Given(/^I have already registered his company$/, async () => {

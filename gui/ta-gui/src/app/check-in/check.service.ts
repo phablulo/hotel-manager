@@ -14,11 +14,15 @@ export class CheckService {
         return this.http.put(this.taURL + "/check", JSON.stringify(form), {headers: this.headers})
             .toPromise()
             .then( res => {
-                if (res.json().sucess) { return form;}
-                else if (res.json().fail) {
+                if (!res.json().fail) {
+                        form.JSONtoForm(res.json());
+                        return form;
+                    }
+                else {
                     return null;
                 }
             })
+            .catch(this.ERROR);
     }
 
     checkIn2(form: Form): Promise<Form> {
@@ -30,9 +34,19 @@ export class CheckService {
                     return null;
                 }
             })
+            .catch(this.ERROR);
     }
-    getQuarto() {
-        
+
+    getQuarto(): Promise<[]> {
+        return this.http.get(this.taURL + "/quarto")
+            .toPromise()
+            .then(res =>  res.json())
+            .catch(this.ERROR);
+    }
+
+    private ERROR(erro: any): Promise<any>{
+        console.error('Acesso mal sucedido ao serviço de alunos',erro);
+        return Promise.reject(erro.message || erro);
     }
     
 }

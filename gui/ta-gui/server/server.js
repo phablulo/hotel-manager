@@ -5,6 +5,10 @@ const app = express();
 const bodyParser = require('body-parser');
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('./db.db');
+var resultado;
+const CHECK = require('./checkinRoom');
+
+room = new CHECK();
 
 
 app.use(function (req, res, next) {
@@ -102,24 +106,32 @@ function enviar(email, nome, dest, last, res){
     auth: {
 
 app.post('/check', function (req = express.Request, res = express.Response) {
-  result = 0;
+  result = room.checkinUpdate(req.body)
   console.log(result, "aqui");
   if (result) {
     res.send({"success": "enviado com sucesso!"});
   } else {
-    res.send({"failure": "Email não foi enviado com sucesso!"});
+    res.send({"failure": "check-in mal sucedido"});
   }
 });
 
+
 app.put('/check', function (req = express.Request, res = express.Response) { 
-  result = 0;
-  console.log(result, "aqui");
+  console.log(req.body, "aqui");
+  room.getCheckin(req.body);
   if (result) {
     res.send({"success": "enviado com sucesso!"});
   } else {
-    res.send({"failure": "Email não foi enviado com sucesso!"});
+    res.send({"failure": "check-in mal sucedido"});
   }
 });
+
+
+app.get('/quarto', function (req, res) {
+  console.log('req.body');
+  room.getQuarto(res);
+  //res.send(JSON.stringify(cadastro.getAlunos()));
+})
 
 app.listen(3000, () => {
   console.log("server run!!!");
