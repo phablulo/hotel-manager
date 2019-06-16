@@ -1,3 +1,31 @@
-<p>
-  email-list works!
-</p>
+<!--The content below is only a placeholder and can be replaced.-->
+<html>
+
+<body>
+   <div style="text-align:center">
+
+
+      <table border=1 cellspacing=0 cellpadding=2>
+         <tr>
+            <th>Subject</th>
+            <th>Body</th>
+            <th>destinatários</th>
+            <th>Deletar</th>
+         </tr>
+         <tr *ngFor="let a of listemails" name="sendedlist">
+            <td name="subjectlist">{{a.subject}}</td>
+            <td name="bodylist">{{a.body}}</td>
+            <td name="status">{{a.destinatario}}</td>
+            <button name="deletar" value="{{a.id}}" (click)="deleteEmail(a)">Deletar {{a.subject}}</button>
+         </tr>
+      </table>
+
+
+
+   </div>
+</body>
+
+</html>
+
+
+<router-outlet></router-outlet>
