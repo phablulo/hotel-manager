@@ -13,6 +13,7 @@ import { CheckInComponent } from './check-in/check-in.component';
 import { CheckService } from './check-in/check.service';
 import { EmailListComponent } from './email-list/email-list.component';
 import { EmailPathComponent } from './email-path/email-path.component';
+import { EmailListService } from './email-list/emaillist.service';
 
 
 
@@ -41,7 +42,7 @@ import { EmailPathComponent } from './email-path/email-path.component';
     AppRoutingModule
     
   ],
-  providers: [EmailService, CheckService],
+  providers: [EmailService, CheckService, EmailListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
