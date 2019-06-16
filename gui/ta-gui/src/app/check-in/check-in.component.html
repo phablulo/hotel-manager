@@ -2,17 +2,17 @@
 
 <table>
 	<tr>
-		<td><label>Nome</label></td>
-		<td><input [(ngModel)]="form.nome" name="namebox"></td>
-		<td><button (click)="checkInFunc(form)" >Próximo</button></td>
+		<td><label for="name">Nome:</label></td>
+		<td><input id="name" [(ngModel)]="form.nome" name="namebox"></td>
+		<td><button *ngIf="!page1" (click)="checkInFunc(form)">Próximo</button></td>
 	</tr>
 	<tr>
-		<td><label>CPF</label></td>
-		<td><input [(ngModel)]=form.cpf name="cpfbox"></td>
+		<td><label for="CPF">CPF:</label></td>
+		<td><input id="CPF" [(ngModel)]=form.cpf name="cpfbox"></td>
 	</tr>
 </table>
 
-	<td *ngIf="clicado">
+	<td *ngIf="page1">
 		<table>
 				<tr>
 					<td><br><H2>Dados</H2></td>
@@ -131,74 +131,73 @@
 					<td><label>UH Nº</label></td>
 					<td><input [(ngModel)]=form.UHNumero name="UHNumerobox"></td>
 				</tr>
-				<!-- Empresa -->
 				<tr>
-					<td><label>Com empresa</label></td>
-					<td><button mat-button>Click me!</button></td>
+					<td><button (click)="withCompany()" mat-button>Com empresa</button></td>
 				</tr>
-				<tr>
+				<!-- Empresa -->
+				<tr *ngIf="empresa">
 					<td><label>Razão social</label></td>
 					<td><input [(ngModel)]="form.EmpRazaoSocial" name="EmpRazaoSocialbox"></td>
 				</tr>
-				<tr>
+				<tr *ngIf="empresa">
 					<td><label>Nome fantasia</label></td>
 					<td><input [(ngModel)]=form.EmpNomeFantasia name="EmpNomeFantasiabox"></td>
 				</tr>
-				<tr>
+				<tr *ngIf="empresa">
 					<td><label>Rede</label></td>
 					<td><input [(ngModel)]="form.EmpRede" name="EmpRedebox"></td>
 				</tr>
-				<tr>
+				<tr *ngIf="empresa">
 					<td><label>Endereço da empresa</label></td>
 					<td><input [(ngModel)]=form.EmpEndereco name="EmpEnderecobox"></td>
 				</tr>
-				<tr>
+				<tr *ngIf="empresa">
 					<td><label>Estado</label></td>
 					<td><input [(ngModel)]="form.EmpEstado" name="EmpEstadoox"></td>
 				</tr>
-				<tr>
+				<tr *ngIf="empresa">
 					<td><label>Múnicipio</label></td>
 					<td><input [(ngModel)]=form.EmpMunicipio name="EmpMunicipiobox"></td>
 				</tr>
-				<tr>
+				<tr *ngIf="empresa">
 					<td><label>CNPJ</label></td>
 					<td><input [(ngModel)]="form.EmpCNPJ" name="EmpCNPJbox"></td>
 				</tr>
-				<tr>
+				<tr *ngIf="empresa">
 					<td><label>Cadastur</label></td>
 					<td><input [(ngModel)]=form.EmpCadastur name="EmpCadasturbox"></td>
 				</tr>
-				<tr>
+				<tr *ngIf="empresa">
 					<td><label>Tipo</label></td>
 					<td><input [(ngModel)]="form.EmpTipo" name="EmpTipobox"></td>
 				</tr>
-				<tr>
+				<tr *ngIf="empresa">
 					<td><label>CEP da empresa</label></td>
 					<td><input [(ngModel)]=form.EmpCep name="EmpCepbox"></td>
 				</tr>
-				<tr>
+				<tr *ngIf="empresa">
 					<td><label>E-mail</label></td>
 					<td><input [(ngModel)]="form.EmpEmail" name="EmpEmailbox"></td>
 				</tr>
-				<tr>
+				<tr *ngIf="empresa">
 					<td><label>CAT</label></td>
 					<td><input [(ngModel)]=form.EmpCat name="EmpCatbox"></td>
 				</tr>
-				<tr>
+				<tr *ngIf="empresa">
 					<td><label>Telefone da empresa</label></td>
 					<td><input [(ngModel)]="form.EmpTelefone" name="EmpTelefonebox"></td>
 				</tr>
 				<!-- -->
 				<tr>
 					<td><label>Entrada</label></td>
-					<td><input [(ngModel)]="form.Entrada" name="Entradabox" type = "date"></td>
+					<td><input [(ngModel)]="form.Entrada" name="Entradabox" type = "date" (change)="atualizar1()"></td>
 				</tr>
 				<tr>
 					<td><label>Saída</label></td>
-					<td><input [(ngModel)]=form.Saida name="Saidabox" type = "date"></td>
+					<td><input [(ngModel)]=form.Saida name="Saidabox" type = "date" (change)="atualizar2()"></td>
 				</tr>
 				
-				<td><br><H3>Dinheiro</H3></td>   
+				<td><br><H3 *ngIf="!Alterar">{{diffDays}}</H3></td>   
 				<td><br><button (click)="checkInFunc2(form)" >Finalizar</button></td>
 			</table>
 			
