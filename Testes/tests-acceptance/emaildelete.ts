@@ -21,7 +21,7 @@ defineSupportCode(function ({ Given, When, Then }) {
         await element(by.buttonText('Deletar '+subject)).click();
     });
 
-    Then(/^I can see in the list a email with "([^\"]*)" as subject$/, async (subject) => {
+    Then(/^I can't see in the list a email with "([^\"]*)" as subject$/, async (subject) => {
       var allsended : ElementArrayFinder = element.all(by.name('sendedlist'));
         allsended.filter(elem => sended(subject)).then(elems => expect(Promise.resolve(elems.length)).to.eventually.equal(0));
     });
