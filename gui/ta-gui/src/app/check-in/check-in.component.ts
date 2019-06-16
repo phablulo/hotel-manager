@@ -18,7 +18,8 @@ export class CheckInComponent implements OnInit {
     Data1:Boolean = false;
     Data2: Boolean = false;
     Display:boolean = false;
-    ROOMS: [];
+    ROOMS: number[] = [];
+    PRECO: number[] = [];
 
     
     atualizar1() {
@@ -28,6 +29,10 @@ export class CheckInComponent implements OnInit {
             let y = new Date(this.form.Saida);
             let diffTime = Math.abs(y.getTime() - x.getTime());
             this.diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            console.log(this.form.UHNumero);
+            let z = this.PRECO[this.ROOMS.indexOf(parseInt(this.form.UHNumero))];
+            this.diffDays *= z;
         }
     }
 
@@ -38,6 +43,10 @@ export class CheckInComponent implements OnInit {
             let y = new Date(this.form.Saida)
             let diffTime = Math.abs(y.getTime() - x.getTime());
             this.diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            console.log(this.form.UHNumero);
+            let z = this.PRECO[this.ROOMS.indexOf(parseInt(this.form.UHNumero))];
+            this.diffDays *= z;
         }
     }
 
@@ -47,12 +56,31 @@ export class CheckInComponent implements OnInit {
             if (ab != null) {
                 let data = JSON.stringify(ab);
                 data = JSON.parse(data);
-                let temp = [];
+                let x = Object.values(data);
                 for (let i = 0; i < data.length; i ++) {
-                    alert(Object.values(data[i]));
-                    temp.push(data[i].valueOf());
+                    this.ROOMS.push(parseInt(Object.values(x[i])[0]));
+                    //temp.push(parseInt(Object.values(data[i])));
                 }
-                /*this.Display = true;*/
+                this.Display = true;
+              } else {
+                  alert("erro ao receber quarto")
+              }
+        })
+        .catch(erro => alert(erro));
+    }
+
+    getRoom1() {
+        this.checkService.getQuarto1()
+        .then(ab => {
+            if (ab != null) {
+                let data = JSON.stringify(ab);
+                data = JSON.parse(data);
+                let x = Object.values(data);
+                for (let i = 0; i < data.length; i ++) {
+                    this.PRECO.push(parseInt(Object.values(x[i])[0]));
+                    //temp.push(parseInt(Object.values(data[i])));
+                }
+                this.Display = true;
               } else {
                   alert("erro ao receber quarto")
               }
@@ -64,6 +92,7 @@ export class CheckInComponent implements OnInit {
       this.checkService.checkIn(a)
       .then(ab => {
           if (ab != null) {
+              console.log(JSON.stringify(ab));
               this.form = ab;
             } else {
                 this.cadastro = false;
@@ -84,16 +113,23 @@ export class CheckInComponent implements OnInit {
               alert("Cadastro feito");
               this.cadastro = true;
           }
+          if (this.cadastro) {
+            alert("Atualização feita");
+          }
           if (ab != null) {
               alert("Check-in feito");
               this.form = new Form();
               this.getRoom();
+              window.location.href = 'http://localhost:4200'
           }
       })
       .catch(erro => alert(erro));
   }
 
+  
+
   ngOnInit() {
       this.getRoom();
+      this.getRoom1();
   }
 }

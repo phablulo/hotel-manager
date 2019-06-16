@@ -44,6 +44,13 @@ export class CheckService {
             .catch(this.ERROR);
     }
 
+    getQuarto1(): Promise<[]> { //preço
+        return this.http.get(this.taURL + "/quarto1")
+            .toPromise()
+            .then(res =>  res.json())
+            .catch(this.ERROR);
+    }
+
     private ERROR(erro: any): Promise<any>{
         console.error('Acesso mal sucedido ao serviço de alunos',erro);
         return Promise.reject(erro.message || erro);
