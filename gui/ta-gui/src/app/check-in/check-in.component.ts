@@ -8,23 +8,73 @@ import { Form } from './form';
   styleUrls: ['./check-in.component.css']
 })
 export class CheckInComponent implements OnInit {
-  constructor (private checkService: CheckService) {}
+    constructor (private checkService: CheckService) {}
     
-  form: Form = new Form();
-  cadastro: Boolean = true;
-  clicado: Boolean = false;
+    diffDays = 0;
+    form: Form = new Form();
+    cadastro: Boolean = true;
+    page1: Boolean = false;
+    empresa: Boolean = false;
+    Data1:Boolean = false;
+    Data2: Boolean = false;
+    Display:boolean = false;
+    ROOMS: [];
+
+    
+    atualizar1() {
+        this.Data1 = true;
+        if (this.Data2 == true) {
+            let x = new Date(this.form.Entrada);
+            let y = new Date(this.form.Saida);
+            let diffTime = Math.abs(y.getTime() - x.getTime());
+            this.diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        }
+    }
+
+    atualizar2() {
+        this.Data2 = true;
+        if (this.Data1 == true) {
+            let x = new Date(this.form.Entrada);
+            let y = new Date(this.form.Saida)
+            let diffTime = Math.abs(y.getTime() - x.getTime());
+            this.diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        }
+    }
+
+    getRoom() {
+        this.checkService.getQuarto()
+        .then(ab => {
+            if (ab != null) {
+                let data = JSON.stringify(ab);
+                data = JSON.parse(data);
+                let temp = [];
+                for (let i = 0; i < data.length; i ++) {
+                    alert(Object.values(data[i]));
+                    temp.push(data[i].valueOf());
+                }
+                /*this.Display = true;*/
+              } else {
+                  alert("erro ao receber quarto")
+              }
+        })
+        .catch(erro => alert(erro));
+    }
 
   checkInFunc (a: Form): void {
       this.checkService.checkIn(a)
       .then(ab => {
           if (ab != null) {
               this.form = ab;
-          } else {
-              this.cadastro = false;
-          }
-          this.clicado = !this.clicado;
-      })
-      .catch(erro => alert(erro));
+            } else {
+                this.cadastro = false;
+            }
+        })
+        .catch(erro => alert(erro));
+        this.page1 = !this.page1;
+  }
+
+  withCompany() {
+      this.empresa = !this.empresa;
   }
 
   checkInFunc2(a: Form): void {
@@ -37,12 +87,13 @@ export class CheckInComponent implements OnInit {
           if (ab != null) {
               alert("Check-in feito");
               this.form = new Form();
+              this.getRoom();
           }
       })
       .catch(erro => alert(erro));
   }
 
   ngOnInit() {
-      
+      this.getRoom();
   }
 }

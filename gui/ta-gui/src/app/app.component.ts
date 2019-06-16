@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  title = 'Hotel Manager';
+  title:string;
   url:string = window.location.href;
 
   homeActive:boolean;
@@ -18,19 +18,19 @@ export class AppComponent {
 
   constructor(){
     if(this.url == "http://localhost:4200/"){
-    
+    this.title = "Hotel Manager";
     this.homeActive = true;
 
-    }else if(this.url == "http://localhost:4200/email"){
-
+    }else if(this.url == "http://localhost:4200/email"||this.url == "http://localhost:4200/emaillist"){
+    this.title = "Email - Hotel Manager";
     this.emailActive = true;
 
     }else if(this.url == "http://localhost:4200/checkin"){
-
+      this.title = "Checkin - Hotel Manager";
     this.checkActive = true;
 
     }else{
-
+      this.title = "Graficos - Hotel Manager";
       this.graficoActive = true;
 
     }

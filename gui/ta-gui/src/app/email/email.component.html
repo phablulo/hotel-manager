@@ -1,25 +1,35 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <html (mousemove)="onMove()">
-<div style="text-align:center">
 
-<h1>E-mail</h1>
-<div style="text-align:center">
-<input type="text" id="profissao" placeholder="Profissão">
-<input type="text" id="Nacionalidade" placeholder="Nacionalidade">
-<input type="text" id="Cidade" placeholder="Cidade">
-<input type="text" id="Estado" placeholder="Estado">
-<input type="text" id="País" placeholder="País">
-</div>
-<br>
-<input type="button" id="buscar" value="Buscar">
+<body>
+  <div style="text-align:center">
+
+    <h1>E-mail</h1>
+    <div style="text-align:center">
+      <div class="marg">
+        <input class="a" type="text" [(ngModel)]="email.profissao" id="profissao" placeholder="Profissão">
+        <input class="a" type="text" [(ngModel)]="email.nacionalidade" id="Nacionalidade" placeholder="Nacionalidade">
+        <input class="a" type="text" [(ngModel)]="email.cidade" id="Cidade" placeholder="Cidade">
+        <input class="a" type="text" [(ngModel)]="email.estado" id="Estado" placeholder="Estado">
+        <input class="a" type="text" [(ngModel)]="email.pais" id="País" placeholder="País">
+      </div>
+    </div>
+    <br>
+    
+    <a href='emaillist'><button>Enviados</button></a>
 
 
-    <div style="margin-top: 5%; ">
-        <input type=text id="assunto" [(ngModel)]="email.subject" style="width: 600px; font-size: 14px; font-family: arial;" placeholder="Escreva o assunto do E-mail" required="preencha o Assunto">
-        <br><input type=text id="assunto" [(ngModel)]="email.email" style="width: 600px; font-size: 14px; font-family: arial;" placeholder="Escreva o endereço do E-mail" required="preencha o Endereço de email"><br><br><br>
-        <textarea ng-model="myTextarea" id="corpodetexto" [(ngModel)]="email.body" style="font-size: 14px; font-family: arial;" rows="20" cols="80" placeholder="Escreva o corpo do E-mail" required="Preencha o corpo do email"></textarea> <br>
-        <td><button (click)="criarEmail(email)">Enviar</button></td>
-        <td *ngIf="naoenviado">
+    <div class="email">
+      <input class="infobar" 
+      type=text id="assunto" [(ngModel)]="email.subject" placeholder="Escreva o assunto do E-mail"
+        required="preencha o Assunto">
+      <br><br>
+     <br><br><br>
+      <textarea class="emailbody" ng-model="myTextarea" id="corpodetexto" [(ngModel)]="email.body"
+        rows="20" cols="80" placeholder="Escreva o corpo do E-mail"
+        required="Preencha o corpo do email"></textarea> <br>
+      <button (click)="criarEmail(email)">Enviar</button>
+      <td *ngIf="naoenviado">
          Falha ao enviar email.
         </td>
       <td *ngIf="enviado">
@@ -31,7 +41,23 @@
       <td *ngIf="bod">
      Você não pode enviar um e-mail sem corpo.
       </td>
+
+      <table>
+      <tr>
+         <th>Subject</th>
+         <th>Body</th>
+         <th>Status</th>
+      </tr>
+      <tr *ngFor="let a of emails" name="sendedlist">
+         <td name="subjectlist">{{a.subject}}</td>
+         <td name="bodylist">{{a.body}}</td>
+         <td name="status">Enviado</td>
+      </tr>
+      </table>
+
+
       </div>
-    </div></html>
+    </div></body></html>
+
 
 <router-outlet></router-outlet>

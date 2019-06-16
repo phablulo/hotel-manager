@@ -1,7 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
 let CheckService = class CheckService {
     constructor(http) {
         this.http = http;
