@@ -11,18 +11,16 @@ let pAND = ((p,q) => p.then(a => q.then(b => a && b)))
 defineSupportCode(function ({ Given, When, Then }) {
     Given(/^I am at the "Home" page$/, async () => {
         await browser.get("http://localhost:4200/");
-        await expect(browser.getTitle()).to.eventually.equal('TaGui');
+        await expect(browser.getTitle()).to.eventually.equal('Hotel Manager');
     })
 
 
     When(/^I click on the "e-Mail" button on the navigation bar$/, async (page) => {
-        
-        await browser.get("http://localhost:4200/email");
+        /*tem um click aqui pqp*/
     });
 
     Then(/^A message shows up "([^\"]*)"$/, async (name) => {
-        let x = browser.switchTo().alert();
-        await expect(x.getText()).to.eventually.equal(name);
+        await expect(browser.getTitle()).to.eventually.equal('Email - Hotel Manager');
     });
 
 })
