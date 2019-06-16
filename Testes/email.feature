@@ -2,26 +2,15 @@ Feature: As a receptionist
          I want to send a custom email to clients  
          So that I inform about promotions to a determinated perfil
 
-Scenario: Send e-mail without body
-Given I am at the "E-mail" page
-And I do write a subject to e-mail
-And I don't write a body to e-mail
-Then I try to send the email
-And I can see the mensage "Você não pode enviar um e-mail sem corpo."
+Scenario: Sending a complete email
+Given I am at the Email page
+When I try to send the email with "test subject" as subject and “teste body” as body
+Then I can see "test subject" in the sended list
 
-Scenario: Send e-mail without subject
-Given I am at the "E-mail" page
-And I don't write a subject to e-mail
-And I do write a body to e-mail
-Then I try to send the email
-And I can see the mensage "Você não pode enviar um e-mail sem assunto."
-
-Scenario: Send a complete e-mail
-Given I am at the "E-mail" page
-And I do write a subject to e-mail
-And I do write a body to e-mail
-Then I try to send the email
-And I can see the mensage "E-mail enviado com sucesso."
+Scenario: Sending email with empty field
+Given I am at the Email page
+When I try to send the email with "test subject" as subject and “” as body
+Then I can’t see "test subject" in the sended list
 
 Scenario: Search for client results
 Given I am at the "E-mail" page
