@@ -14,10 +14,10 @@
         </ng-template>
 
         <div *ngIf = "emailActive, else emailElse">
-            <a class = "active" id="linkemail" href="email">e-Mail</a>
+            <a class = "active" id="linkemail" href="emailpath">e-Mail</a>
         </div>
         <ng-template #emailElse>
-            <a id="linkemail" href="email">e-Mail</a>
+            <a id="linkemail" href="emailpath">e-Mail</a>
         </ng-template>
         
         <div *ngIf = "checkActive, else checkElse">
