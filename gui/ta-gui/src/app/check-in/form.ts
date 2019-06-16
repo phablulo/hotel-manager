@@ -108,8 +108,8 @@ export class Form {
         //
         this.NumeroHospede = "";
         this.UHNumero = "";
-        this.Entrada = new Date(0, 0 ,0);
-        this.Saida = new Date(0, 0, 0);
+        this.Entrada = new Date();
+        this.Saida = new Date();
 
         //Empresa
         this.EmpRazaoSocial = "";
@@ -125,6 +125,67 @@ export class Form {
         this.EmpEmail = "";
         this.EmpCat = "";
         this.EmpTelefone = "";
+    }
+
+    JSONtoForm(a: JSON) {
+        this.nome = a['nome'];
+        this.email = a['email'];
+        this.telefone = a['telefone'];
+        this.celular = a['celular'];
+        this.profissao = a['profissao'];
+        this.nacionalidade = a['nacionalidade'];
+        this.aniversario = a['aniversario'];
+        this.genero = a['genero'];
+
+        //documento
+        this.numero = a['numero'];
+        this.tipo = a['tipo'];
+        this.orgao = a['orgao'];
+        this.cpf = a['cpf'];
+
+        //endereço
+        this.endereco = a['endereco'];
+        this.complemento = a['complemento'];
+        this.bairro = a['bairro'];
+        this.numeroRua = a['numeroRua'];
+        this.cidade = a['cidade'];
+        this.estado = a['estado'];
+        this.pais = a['pais'];
+        this.cep = a['cep'];
+
+        //procedência
+        this.ProcPais = a['ProcPais'];
+        this.ProcEstado = a['ProcEstado'];
+        this.ProcCidade = a['ProcCidade'];
+
+        //proximo destino
+        this.ProxPais = a['ProxPais'];
+        this.ProxEstado = a['ProxEstado'];
+        this.ProxCidade = a['ProxCidade'];
         
+        //
+        this.Motivo = a['Motivo'];
+        this.MeioDeTranspote = a['MeioDeTranspote'];
+        this.Obcervacoes = a['Obcervacoes'];
+
+        //
+        this.NumeroHospede = a['NumeroHospede'];
+        this.Entrada = new Date();
+        this.Saida = new Date();
+
+        //Empresa
+        this.EmpRazaoSocial = a['EmpRazaoSocial'];
+        this.EmpNomeFantasia = a['EmpNomeFantasia'];
+        this.EmpRede = a['EmpRede'];
+        this.EmpEndereco = a['EmpEndereco'];
+        this.EmpEstado = a['EmpEstado'];
+        this.EmpMunicipio = a['EmpMunicipio'];
+        this.EmpCNPJ = a['EmpCNPJ'];
+        this.EmpCadastur = a['EmpCadastur'];
+        this.EmpTipo = a['EmpTipo'];
+        this.EmpCep = a['EmpCep'];
+        this.EmpEmail = a['EmpEmail'];
+        this.EmpCat = a['EmpCat'];
+        this.EmpTelefone = a['EmpTelefone'];
     }
 }

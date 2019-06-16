@@ -5,6 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 var resultado;
 
+
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -60,25 +61,34 @@ ${email['body']}
   console.log(resposta);
   return resposta;
 }
+
 app.post('/check', function (req = express.Request, res = express.Response) {
-  result = 0;
+  result = CHECK.checkinUpdate(req.body)
   console.log(result, "aqui");
   if (result) {
     res.send({"success": "enviado com sucesso!"});
   } else {
-    res.send({"failure": "Email não foi enviado com sucesso!"});
+    res.send({"failure": "check-in mal sucedido"});
   }
 });
 
+
 app.put('/check', function (req = express.Request, res = express.Response) { 
-  result = 0;
-  console.log(result, "aqui");
+  console.log(req.body, "aqui");
+  CHECK.getCheckin(req.body);
   if (result) {
     res.send({"success": "enviado com sucesso!"});
   } else {
-    res.send({"failure": "Email não foi enviado com sucesso!"});
+    res.send({"failure": "check-in mal sucedido"});
   }
 });
+
+
+app.get('/quarto', function (req, res) {
+  console.log('req.body')
+  CHECK.getQuarto(res);
+  res.send(JSON.stringify(cadastro.getAlunos()));
+})
 
 app.listen(3000, () => {
   console.log("server run!!!");

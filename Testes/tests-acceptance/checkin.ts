@@ -7,7 +7,7 @@ let expect = chai.expect;
 defineSupportCode(function ({ Given, When, Then }) {
     Given(/^I am at the check-in page$/, async () => {
         await browser.get("http://localhost:4200/checkin");
-        await expect(browser.getTitle()).to.eventually.equal('checkin');
+        await expect(browser.getTitle()).to.eventually.equal('Checkin - Hotel Manager');
     })
 
     Given(/^I have already registered a guest named "([^\"]*)" with cpf "(\d*)"$/, async (name, cpf) => {

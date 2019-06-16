@@ -10,6 +10,15 @@
 		<td><label for="CPF">CPF:</label></td>
 		<td><input id="CPF" [(ngModel)]=form.cpf name="cpfbox"></td>
 	</tr>
+	<!--<tr>
+		<td>
+			<label for="list">Lista de quartos</label>
+			<select *ngIf="Display" id="list" name="freeRooms" [([(ngModel)]="form.UHNumero")]>
+				<option *ngFor="let a of ROOMS">{{a}}</option>
+			</select>
+		</td>
+	</tr>-->
+	<!-- get quarto--->
 </table>
 
 	<td *ngIf="page1">
@@ -128,10 +137,6 @@
 					<td><input [(ngModel)]="form.NumeroHospede" name="NumeroHospedebox"></td>
 				</tr>
 				<tr>
-					<td><label>UH Nº</label></td>
-					<td><input [(ngModel)]=form.UHNumero name="UHNumerobox"></td>
-				</tr>
-				<tr>
 					<td><button (click)="withCompany()" mat-button>Com empresa</button></td>
 				</tr>
 				<!-- Empresa -->
@@ -197,7 +202,7 @@
 					<td><input [(ngModel)]=form.Saida name="Saidabox" type = "date" (change)="atualizar2()"></td>
 				</tr>
 				
-				<td><br><H3 *ngIf="!Alterar">{{diffDays}}</H3></td>   
+				<td><br><H3>R$ {{diffDays}}</H3></td>   
 				<td><br><button (click)="checkInFunc2(form)" >Finalizar</button></td>
 			</table>
 			
