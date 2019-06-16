@@ -4,5 +4,5 @@ Feature: As a receptionist
 
 Scenario: Go to the "email" page
 Given I am at the "Home" page
-When I click on the "e-Mail" link on the navigation bar
+When I select the "e-Mail" option
 Then I can see the "email" page under the navigation bar
