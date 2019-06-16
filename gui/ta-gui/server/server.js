@@ -117,20 +117,17 @@ app.post('/check', function (req = express.Request, res = express.Response) {
 
 
 app.put('/check', function (req = express.Request, res = express.Response) { 
-  console.log(req.body, "aqui");
-  room.getCheckin(req.body);
-  if (result) {
-    res.send({"success": "enviado com sucesso!"});
-  } else {
-    res.send({"failure": "check-in mal sucedido"});
-  }
+  //console.log(req.body, "aqui");
+  room.getCheckin(req.body, res);
 });
 
 
 app.get('/quarto', function (req, res) {
-  console.log('req.body');
   room.getQuarto(res);
-  //res.send(JSON.stringify(cadastro.getAlunos()));
+})
+
+app.get('/quarto1', function (req, res) {
+  room.getQuarto1(res);
 })
 
 app.listen(3000, () => {

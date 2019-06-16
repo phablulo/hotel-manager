@@ -27,6 +27,7 @@ Scenario: Trying to make the check-in for a registered guest without updating hi
     When I choose the date "10/02/2018" to the "Entrada" field
     When I choose the date "12/02/2018" to the "Saida" field
     When I confirm
+    Then A message shows up "Atualização feita"
     Then A message shows up "Check-in feito"
 
 Scenario: Trying to make the check-in for a registered guest while updating his information

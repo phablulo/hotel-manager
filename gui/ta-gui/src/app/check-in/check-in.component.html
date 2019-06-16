@@ -8,16 +8,16 @@
 	</tr>
 	<tr>
 		<td><label for="CPF">CPF:</label></td>
-		<td><input id="CPF" [(ngModel)]=form.cpf name="cpfbox"></td>
+		<td><input id="CPF" [(ngModel)]=form.cpf name="cpfbox" type="number"></td>
 	</tr>
-	<!--<tr>
+	<tr>
 		<td>
-			<label for="list">Lista de quartos</label>
-			<select *ngIf="Display" id="list" name="freeRooms" [([(ngModel)]="form.UHNumero")]>
-				<option *ngFor="let a of ROOMS">{{a}}</option>
+			<label for="list">Lista de quartos: </label>
+			<select *ngIf="Display" id="list" name="freeRooms" [(ngModel)]="form.UHNumero">
+				<option *ngFor="let a of ROOMS" value={{a}}>{{a}}</option>	
 			</select>
 		</td>
-	</tr>-->
+	</tr>
 	<!-- get quarto--->
 </table>
 
@@ -67,7 +67,7 @@
 					<td><input [(ngModel)]=form.endereco name="enderecobox"></td>
 				</tr>
 				<tr>
-					<td><label>Número</label></td>
+					<td><label>Número da residência</label></td>
 					<td><input [(ngModel)]="form.numeroRua" name="numeroRuabox"></td>
 				</tr>
 				<tr>
@@ -203,7 +203,7 @@
 				</tr>
 				
 				<td><br><H3>R$ {{diffDays}}</H3></td>   
-				<td><br><button (click)="checkInFunc2(form)" >Finalizar</button></td>
+				<td><br><button (click)="checkInFunc2(form)" id = "botao">Finalizar</button></td>
 			</table>
 			
 		</td>
