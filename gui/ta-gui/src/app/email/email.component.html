@@ -19,15 +19,16 @@
     <a href='emaillist'><button>Enviados</button></a>
 
 
-    <div style="margin-top: 5%; ">
-      <input type=text id="assunto" [(ngModel)]="email.subject"
-        style="width: 600px; font-size: 14px; font-family: arial;" placeholder="Escreva o assunto do E-mail"
+    <div class="email">
+      <input class="infobar" 
+      type=text id="assunto" [(ngModel)]="email.subject" placeholder="Escreva o assunto do E-mail"
         required="preencha o Assunto">
-      <br><input type=text id="assunto" [(ngModel)]="email.email"
-        style="width: 600px; font-size: 14px; font-family: arial;" placeholder="Escreva o endereço do E-mail"
-        required="preencha o Endereço de email"><br><br><br>
-      <textarea ng-model="myTextarea" id="corpodetexto" [(ngModel)]="email.body"
-        style="font-size: 14px; font-family: arial;" rows="20" cols="80" placeholder="Escreva o corpo do E-mail"
+      <br><br>
+      <input class="infobar" 
+      type=text id="assunto" [(ngModel)]="email.email" placeholder="Escreva o endereço do E-mail"
+      required="preencha o Endereço de email"><br><br><br>
+      <textarea class="emailbody" ng-model="myTextarea" id="corpodetexto" [(ngModel)]="email.body"
+        rows="20" cols="80" placeholder="Escreva o corpo do E-mail"
         required="Preencha o corpo do email"></textarea> <br>
       <button (click)="criarEmail(email)">Enviar</button>
       <td *ngIf="naoenviado">

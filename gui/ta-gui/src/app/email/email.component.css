@@ -7,3 +7,17 @@ body{
 .a{
     margin: 10px;
 }
+.email{
+    margin-top: 5%;
+}
+.infobar{
+    text-align: center;
+    width: 600px;
+    font-size: 14px;
+    font-family: arial;
+    margin-bottom: 20px;
+}
+.emailbody{
+    font-size: 14px;
+    font-family: arial;
+}
