@@ -1,6 +1,3 @@
-body{
-
-}
 .marg{
     margin: 20px;
 }
@@ -15,7 +12,7 @@ body{
     width: 600px;
     font-size: 14px;
     font-family: arial;
-    margin-bottom: 20px;
+    margin-bottom: 70px;
 }
 .emailbody{
     font-size: 14px;
