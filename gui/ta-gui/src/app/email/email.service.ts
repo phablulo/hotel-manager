@@ -16,7 +16,7 @@ export class EmailService {
     return this.http.post(this.taURL + "/email",JSON.stringify(email), {headers: this.headers})
            .toPromise()
            .then(res => {
-              if (res.json().success) {return "Sucesso";} else {return null;}
+              if (res.json().success) {return email;} else {return null;}
            })
            .catch();
   }

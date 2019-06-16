@@ -13,6 +13,7 @@ export class EmailComponent implements OnInit {
 
 
    email: Email = new Email();
+   emails: Email[] = [];
    enviado: boolean = false;
    naoenviado: boolean = false;
    sub: boolean = false;
@@ -33,9 +34,11 @@ export class EmailComponent implements OnInit {
 
 	     this.emailService.criar(a)
 	        .then(ab => {
-	           if (ab) {
+	           if (ab ) {
 	           console.log(ab);
+	           this.emails.push(ab);
 	           this.enviado = true;
+	           this.email = new Email();
 	           } else {
 	           this.naoenviado = true
 	           }
@@ -47,6 +50,7 @@ export class EmailComponent implements OnInit {
    onMove(): void {
       this.sub = false;
       this.bod = false;
+      this.enviado = false;
    }
 
 
