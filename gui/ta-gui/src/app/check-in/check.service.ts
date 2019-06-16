@@ -38,17 +38,10 @@ export class CheckService {
     }
 
     getQuarto(): Promise<[]> {
-        alert("getQuarto()")
         return this.http.get(this.taURL + "/quarto")
             .toPromise()
-            .then(res => {
-                if (!res.json().fail) { 
-                    return res.json();
-                }
-                else if (res.json().fail) {
-                    return null;
-                }
-            } )
+            .then(res =>  res.json())
+            .catch(this.ERROR);
     }
 
     private ERROR(erro: any): Promise<any>{

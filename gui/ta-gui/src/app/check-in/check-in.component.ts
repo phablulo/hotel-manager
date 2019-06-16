@@ -18,7 +18,7 @@ export class CheckInComponent implements OnInit {
     Data1:Boolean = false;
     Data2: Boolean = false;
     Display:boolean = false;
-    ROOMS;
+    ROOMS: [];
 
     
     atualizar1() {
@@ -42,12 +42,17 @@ export class CheckInComponent implements OnInit {
     }
 
     getRoom() {
-        alert("getRoom()");
         this.checkService.getQuarto()
         .then(ab => {
             if (ab != null) {
-                this.ROOMS = Object.values(ab);
-                this.Display = true;
+                let data = JSON.stringify(ab);
+                data = JSON.parse(data);
+                let temp = [];
+                for (let i = 0; i < data.length; i ++) {
+                    alert(Object.values(data[i]));
+                    temp.push(data[i].valueOf());
+                }
+                /*this.Display = true;*/
               } else {
                   alert("erro ao receber quarto")
               }

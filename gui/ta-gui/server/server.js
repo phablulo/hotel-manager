@@ -4,6 +4,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 var resultado;
+const CHECK = require('./checkinRoom');
+
+room = new CHECK();
 
 
 app.use(function (req, res, next) {
@@ -63,7 +66,7 @@ ${email['body']}
 }
 
 app.post('/check', function (req = express.Request, res = express.Response) {
-  result = CHECK.checkinUpdate(req.body)
+  result = room.checkinUpdate(req.body)
   console.log(result, "aqui");
   if (result) {
     res.send({"success": "enviado com sucesso!"});
@@ -75,7 +78,7 @@ app.post('/check', function (req = express.Request, res = express.Response) {
 
 app.put('/check', function (req = express.Request, res = express.Response) { 
   console.log(req.body, "aqui");
-  CHECK.getCheckin(req.body);
+  room.getCheckin(req.body);
   if (result) {
     res.send({"success": "enviado com sucesso!"});
   } else {
@@ -85,9 +88,9 @@ app.put('/check', function (req = express.Request, res = express.Response) {
 
 
 app.get('/quarto', function (req, res) {
-  console.log('req.body')
-  CHECK.getQuarto(res);
-  res.send(JSON.stringify(cadastro.getAlunos()));
+  console.log('req.body');
+  room.getQuarto(res);
+  //res.send(JSON.stringify(cadastro.getAlunos()));
 })
 
 app.listen(3000, () => {
