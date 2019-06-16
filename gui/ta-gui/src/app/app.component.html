@@ -7,31 +7,31 @@
     <div class="topnav">
 
         <div *ngIf = "homeActive, else homeElse">
-            <a class = "active" href="">Home</a>
+            <a class = "active" id="linkhome" href="">Home</a>
         </div>
         <ng-template #homeElse>
-            <a href="">Home</a>
+            <a id="linkhome" href="">Home</a>
         </ng-template>
 
         <div *ngIf = "emailActive, else emailElse">
-            <a class = "active" href="email">e-Mail</a>
+            <a class = "active" id="linkemail" href="email">e-Mail</a>
         </div>
         <ng-template #emailElse>
-            <a href="email">e-Mail</a>
+            <a id="linkemail" href="email">e-Mail</a>
         </ng-template>
         
         <div *ngIf = "checkActive, else checkElse">
-            <a class = "active" href="checkin">Check-In</a>
+            <a class = "active" id="linkcheck" href="checkin">Check-In</a>
         </div>
         <ng-template #checkElse>
-            <a href="checkin">Check-In</a>
+            <a id="linkcheck" href="checkin">Check-In</a>
         </ng-template>
                 
         <div *ngIf = "graficoActive, else graficoElse">
-            <a class = "active" href="grafico">Gráficos</a>
+            <a class = "active" id="linkgrafico" href="grafico">Gráficos</a>
         </div>
         <ng-template #graficoElse>
-            <a href="grafico">Gráficos</a>
+            <a id="linkgrafico" href="grafico">Gráficos</a>
         </ng-template>        
     
     </div>
