@@ -15,49 +15,47 @@
       </div>
     </div>
     <br>
-    
+
     <a href='emaillist'><button>Enviados</button></a>
 
 
     <div class="email">
-      <input class="infobar" 
-      type=text id="assunto" [(ngModel)]="email.subject" placeholder="Escreva o assunto do E-mail"
-        required="preencha o Assunto">
-      <br><br>
-     <br><br><br>
-      <textarea class="emailbody" ng-model="myTextarea" id="corpodetexto" [(ngModel)]="email.body"
-        rows="20" cols="80" placeholder="Escreva o corpo do E-mail"
-        required="Preencha o corpo do email"></textarea> <br>
+      <input class="infobar" type=text name="subjectbox" id="assunto" [(ngModel)]="email.subject"
+        placeholder="Escreva o assunto do E-mail" required="preencha o Assunto">
+        <br>
+      <textarea class="emailbody" name="bodybox" ng-model="myTextarea" id="corpodetexto" [(ngModel)]="email.body" rows="20" cols="80"
+        placeholder="Escreva o corpo do E-mail" required="Preencha o corpo do email"></textarea> <br>
       <button (click)="criarEmail(email)">Enviar</button>
       <td *ngIf="naoenviado">
-         Falha ao enviar email.
-        </td>
+        Falha ao enviar email.
+      </td>
       <td *ngIf="enviado">
-      E-mail enviado com sucesso!
+        E-mail enviado com sucesso!
       </td>
       <td *ngIf="sub">
-      Você não pode enviar um e-mail sem assunto.
+        Você não pode enviar um e-mail sem assunto.
       </td>
       <td *ngIf="bod">
-     Você não pode enviar um e-mail sem corpo.
+        Você não pode enviar um e-mail sem corpo.
       </td>
 
       <table>
-      <tr>
-         <th>Subject</th>
-         <th>Body</th>
-         <th>Status</th>
-      </tr>
-      <tr *ngFor="let a of emails" name="sendedlist">
-         <td name="subjectlist">{{a.subject}}</td>
-         <td name="bodylist">{{a.body}}</td>
-         <td name="status">Enviado</td>
-      </tr>
+        <tr>
+          <th>Subject</th>
+          <th>Body</th>
+          <th>Status</th>
+        </tr>
+        <tr *ngFor="let a of emails" name="sendedlist">
+          <td name="subjectlist">{{a.subject}}</td>
+          <td name="bodylist">{{a.body}}</td>
+          <td name="status">Enviado</td>
+        </tr>
       </table>
 
 
-      </div>
-    </div></body></html>
+    </div>
+  </div>
+</body>
 
-
+</html>
 <router-outlet></router-outlet>

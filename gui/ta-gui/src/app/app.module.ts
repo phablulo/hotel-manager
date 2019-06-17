@@ -13,6 +13,8 @@ import { CheckInComponent } from './check-in/check-in.component';
 import { CheckService } from './check-in/check.service';
 import { GraficosService } from './graficos/graficos.service';
 import { EmailListComponent } from './email-list/email-list.component';
+import { EmailPathComponent } from './email-path/email-path.component';
+import { EmailListService } from './email-list/emaillist.service';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { EmailListComponent } from './email-list/email-list.component';
     GraficosComponent,
     HomePageComponent,
     CheckInComponent,
-    EmailListComponent
+    EmailListComponent,
+    EmailPathComponent
   ],
   imports: [
     RouterModule.forRoot([
@@ -30,7 +33,8 @@ import { EmailListComponent } from './email-list/email-list.component';
       {path:'email',component:EmailComponent},
       {path:'checkin',component:CheckInComponent},
       {path:'grafico',component:GraficosComponent},
-      {path:'emaillist',component:EmailListComponent}
+      {path:'emaillist',component:EmailListComponent},
+      {path:'emailpath',component:EmailPathComponent}
     ]),
     BrowserModule,
     FormsModule,
@@ -38,7 +42,7 @@ import { EmailListComponent } from './email-list/email-list.component';
     AppRoutingModule
     
   ],
-  providers: [EmailService, CheckService, GraficosService],
+  providers: [EmailService, CheckService, EmailListService, GraficosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
