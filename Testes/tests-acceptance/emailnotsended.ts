@@ -9,13 +9,13 @@ let sended = ((subject) => elem.element(by.name('subjectlist')).getText().then(t
 defineSupportCode(function ({ Given, When, Then }) {
     Given(/^I am at the Email page$/, async () => {
         await browser.get("http://localhost:4200/email");
-        await expect(browser.getTitle()).to.eventually.equal('Email');
+        await expect(browser.getTitle()).to.eventually.equal('Email - Hotel Manager');
     })
 
 
     When(/^I try to send the email with "([^\"]*)" as subject and "([^\"]*)" as body$/, async (subject, body) => {
         await $("input[name='subjectbox']").sendKeys(<string> subject);
-        await $("input[name='bodybox']").sendKeys(<string> body);
+        await $("textarea[name='bodybox']").sendKeys(<string> body);
         await element(by.buttonText('Enviar')).click();
     });
 
