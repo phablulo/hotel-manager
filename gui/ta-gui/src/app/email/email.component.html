@@ -20,10 +20,10 @@
 
 
     <div class="email">
-      <input class="infobar" type=text id="assunto" [(ngModel)]="email.subject"
+      <input class="infobar" type=text name="subjectbox" id="assunto" [(ngModel)]="email.subject"
         placeholder="Escreva o assunto do E-mail" required="preencha o Assunto">
         <br>
-      <textarea class="emailbody" ng-model="myTextarea" id="corpodetexto" [(ngModel)]="email.body" rows="20" cols="80"
+      <textarea class="emailbody" name="bodybox" ng-model="myTextarea" id="corpodetexto" [(ngModel)]="email.body" rows="20" cols="80"
         placeholder="Escreva o corpo do E-mail" required="Preencha o corpo do email"></textarea> <br>
       <button (click)="criarEmail(email)">Enviar</button>
       <td *ngIf="naoenviado">

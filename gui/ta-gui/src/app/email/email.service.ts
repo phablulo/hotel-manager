@@ -12,7 +12,7 @@ export class EmailService {
 
   constructor(private http: Http) { }
 
-  criar(email: Email): Promise<string | Email> {
+  criar(email: Email): Promise<Email> {
     return this.http.post(this.taURL + "/email",JSON.stringify(email), {headers: this.headers})
            .toPromise()
            .then(res => {
